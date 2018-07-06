@@ -1,0 +1,9 @@
+FROM alpine:latest
+
+MAINTAINER Dan Sullivan
+
+ENV GOPATH /
+RUN apk update
+RUN apk add go git libvirt-dev musl-dev
+RUN go get github.com/dmacvicar/terraform-provider-libvirt
+RUN go install github.com/dmacvicar/terraform-provider-libvirt
